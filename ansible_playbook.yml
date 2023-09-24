@@ -20,4 +20,4 @@
     register: docversion
 
   - name: Deploy Docker Container
-    command: docker run -itd -p 8084:8081 ssah6694/insuranceimage:latest
+    command: docker run -it -p 8084:8081 ssah6694/insuranceimage:latest
