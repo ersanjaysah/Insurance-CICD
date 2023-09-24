@@ -1,18 +1,19 @@
 ---
-- hosts : all
+- hosts: all
   become: true
-  tasks :
+  connection: ssh
+  tasks:
   - name: Updating apt
-    command : sudo apt-get update
+    command: sudo apt-get update
 
-  - name : Install Docker
-    command : sudo apt-get install -y docker.io
+  - name: Install Docker
+    command: sudo apt-get install -y docker.io
 
-  - name : Start Docker Service
-    command : sudo systemctl start docker
+  - name: Start Docker Service
+    command: sudo systemctl start docker
 
   - name: docker run user
-    shell: usermod -a -G docker ubuntu
+    shell: usermod -aG docker ubuntu
     
   - name: check the docker version
     command: "docker version"
